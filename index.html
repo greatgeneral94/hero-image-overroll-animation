@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+	.hero-container {
+		height:100vh;
+	}
+	.hero {
+		width: 50%;
+		height: 100vh;
+		overflow: hidden;
+		transition: width 0.2s;
+		position: absolute;
+	}
+	.hero_left {
+		z-index: 1;
+	}
+	.hero_right {
+		float: right;
+		right:0;
+	}
+	.image-container {
+		width: 140%;
+		height: 100%;
+		transition: width 0.2s;
+	}
+	.left-container {
+		float: right;
+		margin:auto;
+	}
+	.right-container {
+	}
+	.hero img{
+		width: 100%;
+		height: 100%;
+	}
+	.hero_right:hover{
+		width: 70%;
+		z-index: 9;
+	}
+	.hero_right:hover > .right-container {
+		width: 100%;
+	}
+
+	@media only screen and (max-width: 600px) {
+		
+		.hero img {
+			max-width: none !important;
+			width: auto !important;
+		}
+		.hero_right:hover{
+			width: 50%;
+			z-index: 9;
+		}
+		.hero_right:hover > .right-container {
+			width: 140%;
+		}
+		.text {
+			font-size: 22px !important;
+			bottom: 120px !important;
+		}
+		.text_left {
+			left: 10px !important;
+		}
+		.text_right {
+			right: 10px !important;
+		}
+		.text-container {
+			font-size: 15px !important;
+			display: block !important;
+			border:  none !important;
+			padding: 0 !important;
+		}
+		.text-container-left {
+			left: 10px !important;
+		}
+		.text-container-right {
+			right: 10px !important;
+		}
+		
+		.logo {
+			top: 100px !important;
+		}
+		.text-container-left-top {
+			left: 10px !important;
+			font-size: 15px !important;
+		}
+		.register-btn {
+			right: 10px !important;
+			font-size: 15px !important;
+			content: "REGISTER" !important;
+		}
+	}
+	.overlay {
+		width: 60%;
+		height: 100%;
+		position: absolute;
+		background-color: black;
+		opacity: 0.3;
+		display: none;
+	}
+	.overlay_right {
+		right: 0;
+	}
+	.logo {
+		z-index: 99;
+		width: 235px;
+		height: 64px;
+		position: absolute;
+		top:50px;
+		left:calc(50% - 117px)
+	}
+	.text {
+		position: absolute;
+		bottom: 80px;
+		color:white;
+		font-size: 2vw;
+		transition: bottom 0.1s;
+	}
+	.text_left {
+		left: 80px;
+	}
+	.text_right {
+		right: 80px;
+	}
+	.text-container {
+		position:absolute;
+		bottom:50px;
+		font-size:1vw;
+		color: white;
+		display: none;
+	}
+	.text-container-left {
+		left: 80px;
+		border-left:1px solid white;
+		padding-left: 30px;
+	}
+	.text-container p {
+		padding: 0;margin: 0;
+	}
+	.text-container-right {
+		right: 80px;
+		border-right:1px solid white;
+		padding-right: 30px;
+		text-align: right;
+	}
+	.text-container-left-top {
+		position: absolute;
+		left: 80px;
+		top: 50px;
+		font-size: 20px;
+		color: white;
+	}
+	.text-container-left-top p {
+		padding: 0;
+		margin:  0;
+	}
+	.register-btn {
+		position: absolute;
+		right: 80px;
+		top: 50px;
+		color: white;
+		border: 1px solid white;
+		background: transparent;
+		font-size: 20px;
+		cursor: pointer;
+		padding: 10px;
+	}
+	</style>
+</head>
+<body style="margin: 0; padding: 0;">
+	<div class='hero-container'>
+		<div class="hero hero_left" id="hero_left">
+			<div class="overlay overlay_left" id="overlay_left"></div>
+			<div class="image-container left-container" id="left-container">
+				<img src="./assets/city@2x.jpg" class="left_image">
+			</div>
+			<span class="text text_left" id="text_left">CITY SIDE</span>
+			<div class="text-container text-container-left" id="text-container-left">
+				<p>Etiam nec aliquam libero. Sed id lobortis lectus. Integer commodo</p>
+				<p>dolor malesuada, interdum justo consectetur, convallis elit.</p>
+			</div>
+			<div class="text-container-left-top" id="text-container-left-top">
+				<p>1 & 2 BED CONDOS</p>
+				<p>COMING SOON</p>
+			</div>
+		</div>
+
+		<div class="hero hero_right" id="hero_right">
+			<div class="overlay overlay_right" id="overlay_right"></div>
+			<div class="image-container right-container">
+				<img src="./assets/mountain@2x.jpg" class="right_image">
+			</div>
+			<span class="text text_right" id="text_right">MOUNTAIN SIDE</span>
+			<div class="text-container text-container-right" id="text-container-right">
+				<p>Etiam nec aliquam libero. Sed id lobortis lectus. Integer commodo</p>
+				<p>dolor malesuada, interdum justo consectetur, convallis elit.</p>
+			</div>
+			<button class="register-btn">REGISTER NOW</button>
+		</div>
+		<div class="logo">
+			<img src="assets/eminence-logo@2x.png" style="width:100%;">
+		</div>
+	</div>
+	<script type="text/javascript">
+		document.getElementById("hero_left").onmouseover = function() {mouseOver()};
+	document.getElementById("hero_left").onmouseout = function() {mouseOut()};
+	document.getElementById("hero_right").onmouseover = function() {mouseOver_right()};
+	document.getElementById("hero_right").onmouseout = function() {mouseOut_right()};
+	var width = window.innerWidth;
+	if(width<=600) {
+		document.getElementById('text-container-left').innerHTML = "<p>Etiam nec aliquam libero. Sed id lobortis lectus Integer</p>";
+		document.getElementById('text-container-right').innerHTML = "<p>Etiam nec aliquam libero. Sed id lobortis lectus Integer</p>";
+	}
+	function mouseOver() {
+		if(innerWidth>600) {
+			document.getElementById("hero_left").style.zIndex = "9";
+			document.getElementById("hero_left").style.width = "70%";
+			document.getElementById("left-container").style.width = "100%";
+			document.getElementById('overlay_right').style.display = 'block';
+			document.getElementById('text_left').style.bottom = '120px';
+			document.getElementById('text-container-left').style.display = 'block';
+			document.getElementById('text-container-left').style.bottom = '70px';
+		}
+	}
+
+	function mouseOut() {
+		document.getElementById("hero_left").style.width = "50%";
+		document.getElementById("left-container").style.width = "140%";
+		document.getElementById("left-container").style.marginLeft = "-40%";
+		document.getElementById('overlay_right').style.display = 'none';
+		document.getElementById('text_left').style.bottom = '80px';
+		document.getElementById('text-container-left').style.display = 'none';
+		document.getElementById('text-container-left').style.bottom = '50px';
+		setTimeout(function(){
+			document.getElementById("hero_left").style.zIndex = "1";
+		},200)
+	}
+	function mouseOver_right() {
+		if(width>600) {
+			document.getElementById('overlay_left').style.display = 'block';
+			document.getElementById('text_right').style.bottom = '120px';
+			document.getElementById('text-container-right').style.display = 'block';
+			document.getElementById('text-container-right').style.bottom = '70px';
+			setTimeout(function(){
+				document.getElementById("hero_left").style.zIndex = "1";
+			},0)
+		}
+	}
+	function mouseOut_right() {
+		document.getElementById('overlay_left').style.display = 'none';
+		document.getElementById('text_right').style.bottom = '80px';
+		document.getElementById('text-container-right').style.display = 'none';
+		document.getElementById('text-container-right').style.bottom = '50px';
+	}
+	</script>
+</body>
+</html>
