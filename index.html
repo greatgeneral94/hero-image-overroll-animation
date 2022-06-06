@@ -16,11 +16,12 @@
 		position: absolute;
 	}
 	.hero_left {
-		z-index: 1;
+		z-index: 0;
 	}
 	.hero_right {
-		float: right;
+		/* float: right; */
 		right:0;
+		z-index: 1;
 	}
 	.image-container {
 		width: 140%;
@@ -93,29 +94,32 @@
 			font-size: 15px !important;
 			content: "REGISTER" !important;
 		}
+		.overlay {
+			height: 100%;
+		}
 	}
 	.overlay {
-		width: 60%;
-		height: 100%;
+		width: 100%;
+		height: 50%;
 		position: absolute;
-		background-color: black;
-		opacity: 0.3;
-		display: none;
+		background-color: transparent;
+		background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.5));
+		bottom: 0;
 	}
 	.overlay_right {
 		right: 0;
 	}
 	.logo {
 		z-index: 99;
-		width: 235px;
-		height: 64px;
+		width: 190px;
+		height: auto;
 		position: absolute;
-		top:50px;
-		left:calc(50% - 117px)
+		top:33px;
+		left:calc(50% - 95px)
 	}
 	.text {
 		position: absolute;
-		bottom: 80px;
+		bottom: 65px;
 		color:white;
 		font-size: 2vw;
 		transition: bottom 0.1s;
@@ -150,8 +154,8 @@
 	.text-container-left-top {
 		position: absolute;
 		left: 80px;
-		top: 50px;
-		font-size: 20px;
+		top: 33px;
+		font-size: 15px;
 		color: white;
 	}
 	.text-container-left-top p {
@@ -161,13 +165,13 @@
 	.register-btn {
 		position: absolute;
 		right: 80px;
-		top: 50px;
+		top: 33px;
 		color: white;
 		border: 1px solid white;
 		background: transparent;
-		font-size: 20px;
+		font-size: 12px;
 		cursor: pointer;
-		padding: 10px;
+		padding: 3px 15px;
 	}
 	</style>
 </head>
@@ -199,7 +203,7 @@
 				<p>Etiam nec aliquam libero. Sed id lobortis lectus. Integer commodo</p>
 				<p>dolor malesuada, interdum justo consectetur, convallis elit.</p>
 			</div>
-			<button class="register-btn">REGISTER NOW</button>
+			<button class="register-btn" id="register-btn">REGISTER NOW</button>
 		</div>
 		<div class="logo">
 			<img src="assets/eminence-logo@2x.png" style="width:100%;">
@@ -214,13 +218,15 @@
 	if(width<=600) {
 		document.getElementById('text-container-left').innerHTML = "<p>Etiam nec aliquam libero. Sed id lobortis lectus Integer</p>";
 		document.getElementById('text-container-right').innerHTML = "<p>Etiam nec aliquam libero. Sed id lobortis lectus Integer</p>";
+		document.getElementById('register-btn').innerHTML = "REGISTER";
 	}
 	function mouseOver() {
 		if(innerWidth>600) {
-			document.getElementById("hero_left").style.zIndex = "9";
+			document.getElementById("hero_left").style.zIndex = "1";
+			document.getElementById("hero_right").style.zIndex = "0";
 			document.getElementById("hero_left").style.width = "70%";
 			document.getElementById("left-container").style.width = "100%";
-			document.getElementById('overlay_right').style.display = 'block';
+			document.getElementById('overlay_right').style.height = '100%';
 			document.getElementById('text_left').style.bottom = '120px';
 			document.getElementById('text-container-left').style.display = 'block';
 			document.getElementById('text-container-left').style.bottom = '70px';
@@ -231,27 +237,23 @@
 		document.getElementById("hero_left").style.width = "50%";
 		document.getElementById("left-container").style.width = "140%";
 		document.getElementById("left-container").style.marginLeft = "-40%";
-		document.getElementById('overlay_right').style.display = 'none';
+		document.getElementById('overlay_right').style.height = '50%';
 		document.getElementById('text_left').style.bottom = '80px';
 		document.getElementById('text-container-left').style.display = 'none';
 		document.getElementById('text-container-left').style.bottom = '50px';
-		setTimeout(function(){
-			document.getElementById("hero_left").style.zIndex = "1";
-		},200)
 	}
 	function mouseOver_right() {
 		if(width>600) {
-			document.getElementById('overlay_left').style.display = 'block';
+			document.getElementById("hero_right").style.zIndex = "1";
+			document.getElementById("hero_left").style.zIndex = "0"; 
+			document.getElementById('overlay_left').style.height = '100%';
 			document.getElementById('text_right').style.bottom = '120px';
 			document.getElementById('text-container-right').style.display = 'block';
 			document.getElementById('text-container-right').style.bottom = '70px';
-			setTimeout(function(){
-				document.getElementById("hero_left").style.zIndex = "1";
-			},0)
 		}
 	}
 	function mouseOut_right() {
-		document.getElementById('overlay_left').style.display = 'none';
+		document.getElementById('overlay_left').style.height = '50%';
 		document.getElementById('text_right').style.bottom = '80px';
 		document.getElementById('text-container-right').style.display = 'none';
 		document.getElementById('text-container-right').style.bottom = '50px';
