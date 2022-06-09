@@ -4,7 +4,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<style type="text/css">
+	<style>
+		.text {
+		font-family: 'minerva-modern', serif !important;
+	}
+	.hero-wrapper{
+		padding: 0;
+	}
 	.hero-container {
 		height:100vh;
 	}
@@ -12,21 +18,21 @@
 		width: 50%;
 		height: 100vh;
 		overflow: hidden;
-		transition: width 0.2s;
+		transition: width 1s;
 		position: absolute;
 	}
+    
 	.hero_left {
 		z-index: 0;
 	}
 	.hero_right {
-		/* float: right; */
 		right:0;
-		z-index: 1;
+        z-index: 1;
 	}
 	.image-container {
 		width: 140%;
 		height: 100%;
-		transition: width 0.2s;
+		transition: width 1s;
 	}
 	.left-container {
 		float: right;
@@ -46,7 +52,7 @@
 		width: 100%;
 	}
 
-	@media only screen and (max-width: 600px) {
+	@media only screen and (max-width: 992px) {
 		
 		.hero img {
 			max-width: none !important;
@@ -70,10 +76,11 @@
 			right: 10px !important;
 		}
 		.text-container {
-			font-size: 15px !important;
+			font-size: 16px !important;
 			display: block !important;
 			border:  none !important;
 			padding: 0 !important;
+            bottom:30px !important;
 		}
 		.text-container-left {
 			left: 10px !important;
@@ -84,26 +91,39 @@
 		
 		.logo {
 			top: 100px !important;
+            width:90% !important;
+            left: 5% !important;
 		}
 		.text-container-left-top {
 			left: 10px !important;
-			font-size: 15px !important;
+            top: 10px !important;
+			font-size: 16px !important;
+			font-weight: 600;
+			text-transform:uppercase;
 		}
 		.register-btn {
 			right: 10px !important;
+            top: 10px !important;
 			font-size: 15px !important;
-			content: "REGISTER" !important;
+			font-weight:bold;
 		}
-		.overlay {
-			height: 100%;
-		}
+        .overlay {
+        	height: 100% !important;
+        }
 	}
 	.overlay {
 		width: 100%;
 		height: 50%;
 		position: absolute;
 		background-color: transparent;
-		background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.5));
+		background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
+		bottom: 0;
+	}
+	.bigOverlay {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		background-color: rgba(0,0,0,0.2);
 		bottom: 0;
 	}
 	.overlay_right {
@@ -111,18 +131,18 @@
 	}
 	.logo {
 		z-index: 99;
-		width: 190px;
+		width: 220px;
 		height: auto;
 		position: absolute;
 		top:33px;
-		left:calc(50% - 95px)
+		left:calc(50% - 110px)
 	}
 	.text {
 		position: absolute;
-		bottom: 65px;
+		bottom: 60px;
 		color:white;
 		font-size: 2vw;
-		transition: bottom 0.1s;
+		transition: bottom 0.3s;
 	}
 	.text_left {
 		left: 80px;
@@ -133,7 +153,7 @@
 	.text-container {
 		position:absolute;
 		bottom:50px;
-		font-size:1vw;
+		font-size:16px;
 		color: white;
 		display: none;
 	}
@@ -155,8 +175,10 @@
 		position: absolute;
 		left: 80px;
 		top: 33px;
-		font-size: 15px;
+		font-size: 20px;
 		color: white;
+		font-weight:600;
+		text-transform:uppercase;
 	}
 	.text-container-left-top p {
 		padding: 0;
@@ -169,95 +191,109 @@
 		color: white;
 		border: 1px solid white;
 		background: transparent;
-		font-size: 12px;
+		font-size: 20px;
+			font-weight:bold;
 		cursor: pointer;
 		padding: 3px 15px;
 	}
+    .register-btn:hover {
+    	background-color:white;
+        color:black;
+		border:1px solid #C5B091;
+    }
+	img {
+		max-width: none !important;
+	}
 	</style>
 </head>
-<body style="margin: 0; padding: 0;">
+<body>
 	<div class='hero-container'>
-		<div class="hero hero_left" id="hero_left">
-			<div class="overlay overlay_left" id="overlay_left"></div>
-			<div class="image-container left-container" id="left-container">
-				<img src="./assets/city@2x.jpg" class="left_image">
+		<div class="bigOverlay">
+			<div class="hero hero_left" id="hero_left">
+				<div class="overlay overlay_left" id="overlay_left"></div>
+				<div class="image-container left-container" id="left-container">
+					<img src="assets/city-image.jpg"/>
+				</div>
+				<span class="text text_left" id="text_left">CITY SIDE</span>
+				<div class="text-container text-container-left" id="text-container-left">
+					<p>Etiam nec aliquam libero. Sed id lobortis lectus. Integer</p>
+					<p>dolor malesuada, interdum justo consectetur, convallis elit.</p>
+				</div>
+				<div class="text-container-left-top" id="text-container-left-top">
+					<p>1 & 2 BED MOUNTAINSIDE HOMES</p>
+					<p>COMING SOON</p>
+				</div>
 			</div>
-			<span class="text text_left" id="text_left">CITY SIDE</span>
-			<div class="text-container text-container-left" id="text-container-left">
-				<p>Etiam nec aliquam libero. Sed id lobortis lectus. Integer commodo</p>
-				<p>dolor malesuada, interdum justo consectetur, convallis elit.</p>
+			<div class="hero hero_right" id="hero_right">
+				<div class="overlay overlay_right" id="overlay_right"></div>
+				<div class="image-container right-container">
+					<img src="assets/park-image.jpg" class="right_image">
+				</div>
+				<span class="text text_right" id="text_right">MOUNTAIN SIDE</span>
+				<div class="text-container text-container-right" id="text-container-right">
+					<p>Etiam nec aliquam libero. Sed id lobortis lectus. Integer</p>
+					<p>dolor malesuada, interdum justo consectetur, convallis elit.</p>
+				</div>
+				<a href="#Register"><button class="register-btn" id="register-btn">REGISTER NOW</button></a>
 			</div>
-			<div class="text-container-left-top" id="text-container-left-top">
-				<p>1 & 2 BED CONDOS</p>
-				<p>COMING SOON</p>
+			<div class="logo">
+				<img src="assets/eminence-logo@2x.png" style="width:100%;">
 			</div>
-		</div>
-
-		<div class="hero hero_right" id="hero_right">
-			<div class="overlay overlay_right" id="overlay_right"></div>
-			<div class="image-container right-container">
-				<img src="./assets/mountain@2x.jpg" class="right_image">
-			</div>
-			<span class="text text_right" id="text_right">MOUNTAIN SIDE</span>
-			<div class="text-container text-container-right" id="text-container-right">
-				<p>Etiam nec aliquam libero. Sed id lobortis lectus. Integer commodo</p>
-				<p>dolor malesuada, interdum justo consectetur, convallis elit.</p>
-			</div>
-			<button class="register-btn" id="register-btn">REGISTER NOW</button>
-		</div>
-		<div class="logo">
-			<img src="assets/eminence-logo@2x.png" style="width:100%;">
 		</div>
 	</div>
-	<script type="text/javascript">
-		document.getElementById("hero_left").onmouseover = function() {mouseOver()};
-	document.getElementById("hero_left").onmouseout = function() {mouseOut()};
-	document.getElementById("hero_right").onmouseover = function() {mouseOver_right()};
-	document.getElementById("hero_right").onmouseout = function() {mouseOut_right()};
-	var width = window.innerWidth;
-	if(width<=600) {
-		document.getElementById('text-container-left').innerHTML = "<p>Etiam nec aliquam libero. Sed id lobortis lectus Integer</p>";
-		document.getElementById('text-container-right').innerHTML = "<p>Etiam nec aliquam libero. Sed id lobortis lectus Integer</p>";
-		document.getElementById('register-btn').innerHTML = "REGISTER";
-	}
-	function mouseOver() {
-		if(innerWidth>600) {
-			document.getElementById("hero_left").style.zIndex = "1";
-			document.getElementById("hero_right").style.zIndex = "0";
-			document.getElementById("hero_left").style.width = "70%";
-			document.getElementById("left-container").style.width = "100%";
-			document.getElementById('overlay_right').style.height = '100%';
-			document.getElementById('text_left').style.bottom = '120px';
-			document.getElementById('text-container-left').style.display = 'block';
-			document.getElementById('text-container-left').style.bottom = '70px';
-		}
-	}
 
-	function mouseOut() {
-		document.getElementById("hero_left").style.width = "50%";
-		document.getElementById("left-container").style.width = "140%";
-		document.getElementById("left-container").style.marginLeft = "-40%";
-		document.getElementById('overlay_right').style.height = '50%';
-		document.getElementById('text_left').style.bottom = '80px';
-		document.getElementById('text-container-left').style.display = 'none';
-		document.getElementById('text-container-left').style.bottom = '50px';
-	}
-	function mouseOver_right() {
-		if(width>600) {
-			document.getElementById("hero_right").style.zIndex = "1";
-			document.getElementById("hero_left").style.zIndex = "0"; 
-			document.getElementById('overlay_left').style.height = '100%';
-			document.getElementById('text_right').style.bottom = '120px';
-			document.getElementById('text-container-right').style.display = 'block';
-			document.getElementById('text-container-right').style.bottom = '70px';
+	<script>
+		document.getElementById("hero_left").onmouseover = function() {mouseOver()};
+		document.getElementById("hero_left").onmouseout = function() {mouseOut()};
+		document.getElementById("hero_right").onmouseover = function() {mouseOver_right()};
+		document.getElementById("hero_right").onmouseout = function() {mouseOut_right()};
+		var width = window.innerWidth;
+		if(width<=992) {
+			document.getElementById('text-container-left').innerHTML = "<p>Etiam nec aliquam libero. Sed id lobortis lectus Integer</p>";
+			document.getElementById('text-container-right').innerHTML = "<p>Etiam nec aliquam libero. Sed id lobortis lectus Integer</p>";
+			document.getElementById('register-btn').innerHTML = "REGISTER";
 		}
-	}
-	function mouseOut_right() {
-		document.getElementById('overlay_left').style.height = '50%';
-		document.getElementById('text_right').style.bottom = '80px';
-		document.getElementById('text-container-right').style.display = 'none';
-		document.getElementById('text-container-right').style.bottom = '50px';
-	}
+		function mouseOver() {
+			if(innerWidth>992) {
+				document.getElementById("hero_left").style.zIndex = "1";
+				document.getElementById("hero_right").style.zIndex = "0";
+				document.getElementById("left-container").style.width = "100%";
+				document.getElementById("hero_left").style.width = "70%";
+				document.getElementById('overlay_right').style.height = '100%';
+				document.getElementById('text_left').style.bottom = '160px';
+				document.getElementById('text-container-left').style.display = 'block';
+				document.getElementById('text-container-left').style.bottom = '70px';
+			}
+		}
+	
+		function mouseOut() {
+			document.getElementById("hero_left").style.width = "50%";
+			document.getElementById("left-container").style.width = "140%";
+			document.getElementById("left-container").style.marginLeft = "-40%";
+			document.getElementById('overlay_right').style.height = '50%';
+			document.getElementById('text_left').style.bottom = '80px';
+			document.getElementById('text-container-left').style.display = 'none';
+			document.getElementById('text-container-left').style.bottom = '50px';
+		}
+		function mouseOver_right() {
+			if(width>992) {
+				document.getElementById("hero_right").style.zIndex = "1";
+				document.getElementById("hero_left").style.zIndex = "0"; 
+				document.getElementById('overlay_left').style.height = '100%';
+				document.getElementById('text_right').style.bottom = '160px';
+				document.getElementById('text-container-right').style.display = 'block';
+				document.getElementById('text-container-right').style.bottom = '70px';
+			}
+		}
+		function mouseOut_right() {
+			document.getElementById('overlay_left').style.height = '50%';
+			document.getElementById('text_right').style.bottom = '80px';
+			document.getElementById('text-container-right').style.display = 'none';
+			document.getElementById('text-container-right').style.bottom = '50px';
+		}
 	</script>
 </body>
 </html>
+
+
+
