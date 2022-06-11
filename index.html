@@ -15,17 +15,22 @@
 			width: 70%;
 			height: 100%;
 			position: absolute;
-			overflow:hidden;
+			/*overflow:hidden;*/
+			
+			background-position: center;
+			background-size: cover;
 		}
 		.left-container {
 			left: -20%;
 			transition: left 0.6s;
 			z-index: 0;
+			background-image: url('assets/city-image.jpg');
 		}
 		.right-container {
 			right: -20%;
 			transition: right 0.6s;
 			z-index: 0;
+			background-image: url('assets/park-image.jpg');
 		}
 		.image-container img {
 			width: 100%;
@@ -103,11 +108,71 @@
 			background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
 			bottom: 0;
 		}
+		.sticky_bar {
+			border-bottom: 1px solid #ccb99e;
+			width:100%;
+			height: 50px;
+			position: fixed;
+			z-index: -1;
+			padding:5px 80px;
+			background-color: white;
+			box-sizing: border-box;
+			top: -50px;
+			/*display: none;*/
+			transition: top 0.5s;
+		}
+		.sticky_bar_text {
+			color: #ccb99e;
+			display: inline-block;
+			margin-top: 3px;
+		}
+		.sticky_bar_text p {
+			margin: 0;
+		}
+		.sticky_bar_logo {
+			width:200px;
+			position: absolute;
+			top:10px;
+			left:calc(50% - 100px)
+		}
+		.sticky_bar_logo img {
+			width: 100%;
+		}
+		.sticky_bar_register_btn{
+			float:right;
+			color:#ccb99e;
+			border:1px solid #ccb99e;
+			margin-top: 5px;
+			font-size: 15px;
+			padding:5px;
+			background-color: white;
+			cursor: pointer;
+		}
+		.sticky_bar_register_btn:hover {
+			color: white;
+			background-color: #ccb99e;
+		}
         @media only screen and (max-width: 992px) {
         	.logo {
 				top: 100px ;
 				width:90%;
 				left: 5%;
+			}
+			.sticky_bar {
+				height: 40px;
+				padding: 5px;
+				top: -40px;
+			}
+			.sticky_bar_logo {
+				width: 150px;
+				left: 10px;
+				top: 7px;
+			}
+			.sticky_bar_register_btn {
+				margin-top: 0px;
+			}
+			.sticky_bar_text {
+				display: none;
 			}
         }
 		@media only screen and (max-width: 1365px) {
@@ -141,27 +206,96 @@
 	</style>
 </head>
 <body style="padding: 0; margin: 0">
+		<div id="sticky_bar" class="sticky_bar">
+			<div class="sticky_bar_text">
+				<p>1 & 2 BED MOUNTAINSIDE HOMES</p>
+				<p>COMING SOON</p>
+			</div>
+			<div class='sticky_bar_logo'>
+				<img src="assets/sticky_logo.png">
+			</div>
+			<button class="sticky_bar_register_btn" id="sticky_bar_register_btn">REGISTER NOW</button>
+		</div>
 		<div class='hero-container'>
 			<div class="image-container left-container" id="left-container">
 				<div class="overlay overlay_left" id="overlay_left"></div>
 				
-				<img src="assets/city-image.jpg"/>
+				<!-- <img src="assets/city-image.jpg"/> -->
 			</div>
 			<div class="image-container right-container" id="right-container">
 				<div class="overlay overlay_right" id="overlay_right"></div>
 				
-				<img src="assets/park-image.jpg" class="right_image">
+				<!-- <img src="assets/park-image.jpg" class="right_image"> -->
 			</div>
 			<img src="assets/eminence-logo@2x.png" class="logo">
 			<span class="text text_left" id="text_left">URBAN ESCAPE</span>
-				<div class="text-container-left-top" id="text-container-left-top">
-					<p>1 & 2 BED MOUNTAINSIDE HOMES</p>
-					<p>COMING SOON</p>
-				</div>
-				<span class="text text_right" id="text_right">MOUNTAIN SIDE</span>
-				<a href="#Register"><button class="register-btn" id="register-btn">REGISTER NOW</button></a>
+			<div class="text-container-left-top" id="text-container-left-top">
+				<p>1 & 2 BED MOUNTAINSIDE HOMES</p>
+				<p>COMING SOON</p>
+			</div>
+			<span class="text text_right" id="text_right">MOUNTAIN SIDE</span>
+			<a href="#Register"><button class="register-btn" id="register-btn">REGISTER NOW</button></a>
 		</div>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p><p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p><p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p><p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p><p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p><p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
+		<p>asfsff</p>
 	<script>
+		window.onscroll = function() {scrollMethod()};
+		var sticky_bar = document.getElementById("sticky_bar");
+
+		function scrollMethod() {
+			  if (window.pageYOffset >= window.innerHeight) {
+			    
+			    sticky_bar.style.top = '0';
+			    sticky_bar.style.zIndex = "9999";
+			  } else {
+			  	sticky_bar.style.top = '-50px';
+			    sticky_bar.style.zIndex = "-1";		  
+				}
+		}
+
 		document.getElementById("left-container").onmouseover = function() {mouseOver()};
 		document.getElementById("left-container").onmouseout = function() {mouseOut()};
 		document.getElementById("right-container").onmouseover = function() {mouseOver_right()};
@@ -169,6 +303,7 @@
 		var width = window.innerWidth;
 		if(width<992) {
 			document.getElementById('register-btn').innerHTML = "REGISTER";
+			document.getElementById('sticky_bar_register_btn').innerHTML = "REGISTER";
 		}
 		var zIndex = 0;
 		document.getElementById("left-container").style.zIndex = "0";
